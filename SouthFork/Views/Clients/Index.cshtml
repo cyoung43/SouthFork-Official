@@ -5,7 +5,31 @@
 }
 
 <h2>Index</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
 
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+</style>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -13,8 +37,8 @@
 @using (Html.BeginForm("Search", "Clients", FormMethod.Post))
 {
     @Html.TextBox("Searching", null, new { @placeholder = "First Name"})
-    <input type="submit" value="Search" />
-    <input value="See All Clients" type="button" onclick="location.href='@Url.Action("Index", "Clients")'" />
+    <button type="submit"><i class="fa fa-search"></i></button>
+    <input type="button" onclick="location.href='@Url.Action("Index", "Clients")'" value="See All Clients">
 }
 <br />
 

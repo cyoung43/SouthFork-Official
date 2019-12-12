@@ -22,6 +22,13 @@ namespace SouthFork.Controllers
             return View(db.Employees.ToList());
         }
 
+        //search function
+        public ActionResult Search(string searching)
+        {
+            return View("Index", db.Employees.Where(x => x.FirstName.Contains(searching) || searching == null).ToList());
+        }
+
+
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {

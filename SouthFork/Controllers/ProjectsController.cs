@@ -26,6 +26,12 @@ namespace SouthFork.Controllers
             return View(db.Projects.ToList());
         }
 
+        //search function
+        public ActionResult Search(string searching)
+        {
+            return View("Index", db.Projects.Where(x => x.ProjectName.Contains(searching) || searching == null).ToList());
+        }
+
         // GET: Projects/Details/5
         public ActionResult Details(int? id)
         {

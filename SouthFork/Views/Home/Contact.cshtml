@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>Contact</h2>
+
+<body>
+    <p>
+        Interested in learning more or submitting a potential project? Give us your name, email,
+        and any project descriptions and we'll contact you!
+    </p>
+
+    @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
+    {
+        <p class="text-danger">@ViewBag.Error</p>
+        <p>Full Name</p>
+        @Html.TextBox("Name")<br /><br />
+        <p>Email</p>
+        @Html.TextBox("Email")<br /><br />
+        <p>Notes</p>
+        @Html.TextBox("Notes")<br /><br />
+        <input type="submit" value="Send" />
+    }
+</body>

@@ -1,0 +1,14 @@
+﻿@model SouthFork.Models.Client
+
+@{
+    ViewBag.Title = "ClientHome";
+}
+
+<h2>Client Home</h2>
+
+<p>Welcome, @ViewBag.User.FirstName</p>
+Welcome, @Html.DisplayFor(Model => Model.FirstName)
+
+@Html.ActionLink("See My Projects", "SeeProjects", new { id = Model.ClientID })
+
+<p class="text-danger">@Html.Raw(ViewBag.Count)</p>

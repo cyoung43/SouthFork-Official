@@ -1,0 +1,154 @@
+﻿@model SouthFork.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetedHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetedHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetedDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetedDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompleteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompleteDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliverDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliverDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BidPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BidPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientPaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SquareFootage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SquareFootage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuilderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuilderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

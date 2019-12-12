@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SouthFork.Models.Project>
+
+@{
+    ViewBag.Title = "My Projects";
+}
+
+<h2>My Projects</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetedHours)
+        </th>
+       
+        
+        <th>
+            @Html.DisplayNameFor(model => model.DeliverDate)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.BidPrice)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.SquareFootage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetedHours)
+        </td>
+        
+        
+        
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliverDate)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.BidPrice)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.SquareFootage)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+       
+    </tr>
+}
+
+</table>

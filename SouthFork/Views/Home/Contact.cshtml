@@ -3,9 +3,10 @@
     ViewBag.Title = "Contact";
 }
 
-<h2>Contact</h2>
+
 
 <body>
+    <h2>Contact</h2><hr />
     <p>
         Interested in learning more or submitting a potential project? Give us your name, email,
         and any project descriptions and we'll contact you!
@@ -14,12 +15,12 @@
     @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
     {
         <p class="text-danger">@ViewBag.Error</p>
-        <p>Full Name</p>
-        @Html.TextBox("Name")<br /><br />
-        <p>Email</p>
-        @Html.TextBox("Email")<br /><br />
-        <p>Notes</p>
-        @Html.TextBox("Notes")<br /><br />
-        <input type="submit" value="Send" />
+        <label for="inputName">Full Name</label>
+        @Html.TextBox("Name", null, new { @class = "form-control" })<br />
+        <label for="inputEmail">Email</label>
+        @Html.TextBox("Email", null, new { @class = "form-control" })<br />
+        <label for="inputNotes">Notes</label>
+        @Html.TextArea("Notes", null, new { @class = "form-control" })<br />
+        <input type="submit" value="Send" class="btn btn-default" />
     }
 </body>

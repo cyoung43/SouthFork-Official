@@ -47,6 +47,7 @@ namespace SouthFork.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.Positions = db.Positions.ToList();
             return View();
         }
 
@@ -57,11 +58,17 @@ namespace SouthFork.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeID,FirstName,LastName,Email,Phone,Wage,Password,PositionID")] Employee employee)
         {
+            ViewBag.Positions = db.Positions.ToList();
+
             if (ModelState.IsValid)
             {
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Employee added to list.</div>";
+                return View("Index", db.Employees.ToList());
             }
 
             return View(employee);
@@ -70,6 +77,8 @@ namespace SouthFork.Controllers
         // GET: Employees/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.Positions = db.Positions.ToList();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,11 +98,17 @@ namespace SouthFork.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,Email,Phone,Wage,Password,PositionID")] Employee employee)
         {
+            ViewBag.Positions = db.Positions.ToList();
+
             if (ModelState.IsValid)
             {
                 db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Employee edited.</div>";
+                return View("Index", db.Employees.ToList());
             }
             return View(employee);
         }
@@ -121,7 +136,11 @@ namespace SouthFork.Controllers
             Employee employee = db.Employees.Find(id);
             db.Employees.Remove(employee);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Employee deleted.</div>";
+            return View("Index", db.Employees.ToList());
         }
 
         protected override void Dispose(bool disposing)

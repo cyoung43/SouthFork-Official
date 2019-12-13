@@ -2,13 +2,21 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-    <label for="inputEmail">Email address</label><br />
-    @Html.TextBox("Email address")<br />
-    <label for="inputPassword">Password</label><br />
-    @Html.Password("Password")<br />
-    <button type="submit">Login</button>
-}
+<body style="background-image: url('../../Content/Images/daniel-mccullough-HtBlQdxfG9k-unsplash.jpg');
+      background-size: cover;">
+
+    <div class="jumbotron">
+        <h2>Employee Login</h2><hr />
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            <label for="inputEmail">Email address</label>
+            @Html.TextBox("Email address", null, new { @class="form-control"})
+            <label for="inputPassword">Password</label>
+            @Html.Password("Password", null, new { @class = "form-control" })
+            <button type="submit" class="btn btn-default">Login</button>
+        }
+
+    </div>
+</body>

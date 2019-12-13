@@ -22,10 +22,18 @@ namespace SouthFork.Controllers
             return View(db.Clients.ToList());
         }
 
+        [ActionName("ClientHome")]
         public ActionResult ClientHome(Client user)
         {
             ViewBag.User = user;
             return View(user);
+        }
+
+        [ActionName("ClientHome2")]
+        public ActionResult ClientHome(int? id)
+        {
+            Client user = db.Clients.Find(id);
+            return View("ClientHome", user);
         }
 
         public ActionResult SeeProjects(int? id)
@@ -90,7 +98,11 @@ namespace SouthFork.Controllers
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Client added to list.</div>";
+                return View("Index", db.Clients.ToList());
             }
 
             return View(client);
@@ -122,7 +134,11 @@ namespace SouthFork.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Client profile edited.</div>";
+                return View("Index", db.Clients.ToList());
             }
             return View(client);
         }
@@ -150,7 +166,10 @@ namespace SouthFork.Controllers
             Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Client deleted.</div>";
+            return View("Index", db.Clients.ToList());
         }
 
         protected override void Dispose(bool disposing)

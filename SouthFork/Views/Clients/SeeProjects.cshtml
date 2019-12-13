@@ -4,9 +4,8 @@
     ViewBag.Title = "My Projects";
 }
 
-<h2>My Projects</h2>
-
-
+<h2>My Projects</h2><hr />
+@Html.ActionLink("Back to Home", "ClientHome2", "Clients", new { id = Model.FirstOrDefault().ClientID }, new { @class="btn btn-default"})<br /><br />
 <table class="table">
     <tr>
         <th>

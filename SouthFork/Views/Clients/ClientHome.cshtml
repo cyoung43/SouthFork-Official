@@ -4,11 +4,17 @@
     ViewBag.Title = "ClientHome";
 }
 
-<h2>Client Home</h2>
 
-<p>Welcome, @ViewBag.User.FirstName</p>
-Welcome, @Html.DisplayFor(Model => Model.FirstName)
 
-@Html.ActionLink("See My Projects", "SeeProjects", new { id = Model.ClientID })
+<body style="background-image: url('../../Content/Images/daniel-mccullough-HtBlQdxfG9k-unsplash.jpg'); background-size: cover;">
+    <div class="jumbotron">
+        <h2>Client Home</h2><hr />
+        
+        Welcome, @Html.DisplayFor(Model => Model.FirstName)<br />
 
-<p class="text-danger">@Html.Raw(ViewBag.Count)</p>
+        @Html.ActionLink("See My Projects", "SeeProjects", new { id = Model.ClientID }, new { @class = "btn btn-default" })
+
+        <p class="text-danger">@Html.Raw(ViewBag.Count)</p>
+    </div>
+</body>
+

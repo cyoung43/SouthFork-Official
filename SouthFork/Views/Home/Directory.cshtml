@@ -3,13 +3,19 @@
     ViewBag.Title = "Directory";
 }
 
-<h2>Directory</h2>
 
-<body>
-    <p>Hello, @ViewBag.user</p>
 
-    @Html.ActionLink("View Employees", "Index", "Employees")
-    @Html.ActionLink("View Projects", "Index", "Projects")
-    @Html.ActionLink("View Clients", "Index", "Clients")
-    @Html.ActionLink("View Contacts", "Index", "Contacts")
+<body style="background-image: url('../../Content/Images/daniel-mccullough-HtBlQdxfG9k-unsplash.jpg'); background-size: cover;">
+    
+    <div class="jumbotron" >
+        
+        
+        <center>
+            <h2>Directory</h2><br />
+            @Html.ActionLink("View Employees", "Index", "Employees", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("View Projects", "Index", "Projects", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("View Clients", "Index", "Clients", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("View Contacts", "Index", "Contacts", null, new { @class = "btn btn-default" })
+        </center>
+    </div>
 </body>

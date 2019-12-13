@@ -22,6 +22,7 @@ namespace SouthFork.Controllers
             ViewBag.Clients = db.Clients.ToList();
             ViewBag.Builders = db.Builders.ToList();
             ViewBag.Employees = db.Employees.ToList();
+            //ViewBag.Results = results;
 
             return View(db.Projects.ToList());
         }
@@ -72,7 +73,11 @@ namespace SouthFork.Controllers
             {
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Project added to list.</div>";
+                return View("Index", db.Projects.ToList());
             }
 
             return View(project);
@@ -112,7 +117,11 @@ namespace SouthFork.Controllers
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Project edited.</div>";
+                return View("Index", db.Projects.ToList());
             }
             return View(project);
         }
@@ -140,7 +149,11 @@ namespace SouthFork.Controllers
             Project project = db.Projects.Find(id);
             db.Projects.Remove(project);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            ViewBag.Results = "<div class='alert alert-success alert-dismissible'>" +
+                                    "<button type = 'button' class='close' data-dismiss='alert'>&times;</button>" +
+                                    "<strong>Success!</strong> Project deleted.</div>";
+            return View("Index", db.Projects.ToList());
         }
 
         protected override void Dispose(bool disposing)

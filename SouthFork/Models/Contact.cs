@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace SouthFork.Models
         [Key]
         public int PotentialID { get; set; }
 
+        [DisplayName("Full Name")]
         public string FullName { get; set; }
 
         public string Email { get; set; }

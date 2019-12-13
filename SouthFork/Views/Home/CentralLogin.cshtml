@@ -3,7 +3,19 @@
     ViewBag.Title = "Central Login";
 }
 
-<h2>Central Login</h2>
+<body style="background-image: url('../../Content/Images/daniel-mccullough-HtBlQdxfG9k-unsplash.jpg'); background-size: cover;">
+    
+    <div class="jumbotron">
 
-<button onclick="location.href='@Url.Action("Login", "Home")'">Employees</button>
-<button onclick="location.href='@Url.Action("ClientLogin", "Home")'">Clients</button>
+        <center>
+            <h2>Central Login Hub</h2>
+
+            <button onclick="location.href='@Url.Action("Login", "Home")'" class="btn btn-default">Employees</button>
+            <button onclick="location.href='@Url.Action("ClientLogin", "Home")'" class="btn btn-default">Clients</button>
+        </center>
+        
+
+    </div>
+    
+
+</body>

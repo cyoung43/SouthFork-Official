@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>SouthFork Clients</h2>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     form.example button {
@@ -30,18 +30,20 @@
     }
 
 </style>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Client", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Directory", "Directory", "Home", null, new { @class = "btn btn-primary" })
 </p>
 
-@using (Html.BeginForm("Search", "Clients", FormMethod.Post))
+@using (Html.BeginForm("Search", "Clients", FormMethod.Post, new { @class="form-inline"}))
 {
-    @Html.TextBox("Searching", null, new { @placeholder = "First Name"})
-    <button type="submit"><i class="fa fa-search"></i></button>
-    <input type="button" onclick="location.href='@Url.Action("Index", "Clients")'" value="See All Clients">
+    @Html.TextBox("Searching", null, new { @placeholder = "Search First Names...", @class="form-control"})
+    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+    <input type="button" onclick="location.href='@Url.Action("Index", "Clients")'" value="See All Clients" class="btn btn-default">
 }
 <br />
-
+<p>@Html.Raw((String)ViewBag.Results)</p>
 <table class="table">
     <tr>
         <th>

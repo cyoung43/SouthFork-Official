@@ -11,6 +11,7 @@ using SouthFork.Models;
 
 namespace SouthFork.Controllers
 {
+    [Authorize]
     public class ContactsController : Controller
     {
         private SouthForkDBContext db = new SouthForkDBContext();

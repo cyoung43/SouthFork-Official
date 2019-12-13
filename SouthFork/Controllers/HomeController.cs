@@ -100,7 +100,7 @@ namespace SouthFork.Controllers
             }
         }
 
-        
+        [Authorize]
         public ActionResult Directory(string userLogin)
         {
             ViewBag.user = userLogin;
